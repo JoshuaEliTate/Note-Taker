@@ -7,7 +7,7 @@ const fs = require('fs');
 const util = require('util');
 const readFromFile = util.promisify(fs.readFile);
 
-
+app.use(express.json())
 app.use('/', express.static('public'));
 
 app.use('/notes', express.static('./public/notes.html'));
@@ -31,23 +31,24 @@ const readAndAppend = (content, file) => {
   };
   
   app.get('/api/notes', (req, res) => {
-    console.info(`${req.method} request received for todos`);
-    readFromFile('./db/notes.json').then((data) => res.json(JSON.parse(data)));
+    console.info(`${req.method} request received for notes`);
+    readFromFile('./db/notes.json')
+    .then((data) => res.json(JSON.parse(data)));
   });
   
   app.post('/api/notes', (req, res) => {
     console.info(`${req.method} request received to add a todo`);
   
-    const { noteTitle, noteText, id } = req.body;
+    const { noteTitle, noteText} = req.body;
   
     if (req.body) {
-      const newTip = {
+      const newNote = {
         noteTitle,
         noteText,
         id: uuid(),
       };
   
-      readAndAppend(newTip, './db/notes.json');
+      readAndAppend(newNote, './db/notes.json');
       res.json(`Todo added successfully 🚀`);
     } else {
       res.error('Error in adding todo');
@@ -62,4 +63,3 @@ const readAndAppend = (content, file) => {
 app.listen(PORT, () => {
     console.log(`API listening on port ${PORT}`);
 });
-
