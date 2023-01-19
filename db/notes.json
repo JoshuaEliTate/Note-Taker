@@ -1,31 +1,27 @@
 [
     {
-        "noteTitle": "Test Title",
-        "notetext": "Test text",
+        "title": "Test Title",
+        "text": "Test text",
         "id": 5
     },
     {
-        "id": "62"
+        "title": "testme",
+        "text": "blah",
+        "id": 8
     },
     {
-        "id": "53"
+        "title": "hi",
+        "text": "hi",
+        "id": "c2"
     },
     {
-        "id": "aa"
+        "title": "I did it",
+        "text": "no fricken way",
+        "id": "71"
     },
     {
-        "id": "56"
-    },
-    {
-        "id": "45"
-    },
-    {
+        "title": "YEAAAAAH",
+        "text": "LETS GOOOOOOOO",
         "id": "9b"
-    },
-    {
-        "id": "46"
-    },
-    {
-        "id": "31"
     }
 ]

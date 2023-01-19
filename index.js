@@ -6,6 +6,7 @@ const uuid = require('./math/uuid');
 const fs = require('fs');
 const util = require('util');
 const readFromFile = util.promisify(fs.readFile);
+const bodyParser = require('body-parser')
 
 app.use(express.json())
 app.use('/', express.static('public'));
@@ -38,13 +39,14 @@ const readAndAppend = (content, file) => {
   
   app.post('/api/notes', (req, res) => {
     console.info(`${req.method} request received to add a todo`);
-  
-    const { noteTitle, noteText} = req.body;
+    (data) => res.json(JSON.parse(data));
+    const { title, text} = req.body;
+    console.log()
   
     if (req.body) {
       const newNote = {
-        noteTitle,
-        noteText,
+        title,
+        text,
         id: uuid(),
       };
   
