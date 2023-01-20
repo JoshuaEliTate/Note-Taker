@@ -41,7 +41,6 @@ const readAndAppend = (content, file) => {
     console.info(`${req.method} request received to add a todo`);
     (data) => res.json(JSON.parse(data));
     const { title, text} = req.body;
-    console.log(uuid())
   
     if (req.body) {
       const newNote = {
