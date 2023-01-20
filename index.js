@@ -41,7 +41,7 @@ const readAndAppend = (content, file) => {
     console.info(`${req.method} request received to add a todo`);
     (data) => res.json(JSON.parse(data));
     const { title, text} = req.body;
-    console.log()
+    console.log(uuid())
   
     if (req.body) {
       const newNote = {
@@ -51,7 +51,7 @@ const readAndAppend = (content, file) => {
       };
   
       readAndAppend(newNote, './db/notes.json');
-      res.json(`Todo added successfully 🚀`);
+      res.json(`Todo added successfully`);
     } else {
       res.error('Error in adding todo');
     }
